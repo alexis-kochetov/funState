@@ -1,19 +1,18 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
+open Microsoft.AspNetCore.Http
 open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Hosting
-open Microsoft.AspNetCore.Http
 
-type Startup() = 
+type StartUp() = 
     member this.Configure(app: IApplicationBuilder) = 
         app.Run(fun context -> context.Response.WriteAsync("Hello world!!!"))
         
 
 [<EntryPoint>]
 let main argv = 
-    let host = WebHostBuilder().UseKestrel().UseStartup<Startup>().Build()
+    let host = WebHostBuilder().UseKestrel().UseStartup<StartUp>().Build()
     host.Run()
     printfn "Server stopped!"
         

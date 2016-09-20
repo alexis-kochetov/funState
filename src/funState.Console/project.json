@@ -2,11 +2,14 @@
   "version": "1.0.0-*",
   "buildOptions": {
     "emitEntryPoint": true,
+    "warningsAsErrors": true,
+    "outputName": "funState",
     "compilerName": "fsc",
     "compile": "**/*.fs"
   },
   "dependencies": {
     "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160831",
+    "Microsoft.AspNetCore.Cors": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1"
   },
   "tools": {
@@ -27,7 +30,8 @@
         }
       },
       "imports": [
-        "dnxcore50"
+        "dnxcore50",
+        "netstandard1.3"
       ]
     }
   }
