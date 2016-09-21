@@ -1,4 +1,5 @@
 ﻿// Learn more about F# at http://fsharp.org
+namespace funState
 
 open System
 open Microsoft.AspNetCore.Http
@@ -10,10 +11,11 @@ type StartUp() =
         app.Run(fun context -> context.Response.WriteAsync("Hello world!!!"))
         
 
-[<EntryPoint>]
-let main argv = 
-    let host = WebHostBuilder().UseKestrel().UseStartup<StartUp>().Build()
-    host.Run()
-    printfn "Server stopped!"
+module Main =
+    [<EntryPoint>]
+    let main argv = 
+        let host = WebHostBuilder().UseKestrel().UseStartup<StartUp>().Build()
+        host.Run()
+        printfn "Server stopped!"
         
-    0 // return an integer exit code
+        0 // return an integer exit code
